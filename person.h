@@ -7,7 +7,6 @@
 class Person
 {
 public:
-
     Person(){ std::cout << "Person::Person()\n"; };
     ~Person(){ std::cout << "Person::~Person()\n"; };
     void * operator new(size_t size);
@@ -22,7 +21,6 @@ private:
     static void * s_pool;
     static void * s_firstFree;
     static void* init_memory_pool(size_t size);
-
 
 };
 

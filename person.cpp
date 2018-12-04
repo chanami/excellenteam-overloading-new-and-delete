@@ -5,13 +5,14 @@
 void *Person::init_memory_pool(size_t size)
 {
 
-    void **placeHolder = (void**)malloc(BLOCK_SIZE * size);
+    void **pool_ptr = (void**)malloc(BLOCK_SIZE * size);
     void *iterator = placeHolder;
     for (unsigned int i = 0; i < size; i++) {
-        placeHolder[i] = ((Person *)iterator) + 1;
+        pool_ptr[i] = ((Person *)iterator) + 1;
         iterator = ((char *)iterator) + BLOCK_SIZE;
     }
-    return *placeHolder;
+    pool_ptr[size-1] =NULL;
+    return *pool_ptr;
 }
 
 void *Person::s_pool = Person::init_memory_pool(POOL_CAPACITY);
