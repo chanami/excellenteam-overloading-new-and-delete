@@ -7,7 +7,7 @@
 class Person
 {
 public:
-    Person(){ std::cout << "Person::Person()\n"; };
+    Person(const char * full_name, unsigned int id, unsigned char age);
     ~Person(){ std::cout << "Person::~Person()\n"; };
     void * operator new(size_t size);
     void operator delete(void* ptr);
@@ -18,9 +18,12 @@ private:
     unsigned char age;
     void * operator new[](size_t size);
     void operator delete[](void* ptr);
+
     static void * s_pool;
     static void * s_firstFree;
-    static void* init_memory_pool(size_t size);
+    static void * init_memory_pool(size_t size);
+    static const size_t POOL_CAPACITY = 10;
+
 
 };
 
