@@ -7,10 +7,13 @@ void *Person::init_memory_pool(size_t size)
 
     void **pool_ptr = (void**)malloc(BLOCK_SIZE * size);
     void *iterator = placeHolder;
-    for (unsigned int i = 0; i < size; i++) {
+
+    for (unsigned int i = 0; i < size; i++)
+    {
         pool_ptr[i] = ((Person *)iterator) + 1;
         iterator = ((char *)iterator) + BLOCK_SIZE;
     }
+    
     pool_ptr[size-1] =NULL;
     return *pool_ptr;
 }
