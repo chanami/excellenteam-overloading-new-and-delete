@@ -1,5 +1,8 @@
-#include <iostream>
+#include "template_allocator.h"
 #include "person.h"
+#include <iostream>
+
+typedef TemplateAllocator<Person,2> APerson;
 
 bool test_bad_allocation()
 {
@@ -9,6 +12,8 @@ bool test_bad_allocation()
 
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    APerson * ap = new APerson;
+
+    std::cout << "Hello, World!" << ap<<std::endl;
     return 0;
 }

@@ -7,6 +7,8 @@
 class Person
 {
 public:
+
+    Person();
     Person(const char * full_name, unsigned int id, unsigned char age);
     ~Person(){ std::cout << "Person::~Person()\n"; };
     void * operator new(size_t size);

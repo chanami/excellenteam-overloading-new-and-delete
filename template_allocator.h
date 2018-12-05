@@ -8,6 +8,7 @@
 template<typename T, unsigned int POOL_CAPACITY>
 class TemplateAllocator :public T {
 public:
+    TemplateAllocator(){std::cout << "TemplateAllocator::TemplateAllocator()\n";}
     void *operator new(size_t size);
 
     void operator delete(void *ptr);
@@ -24,6 +25,8 @@ private:
     static void *s_firstFree;
 
 };
+template<typename T, unsigned int POOL_CAPACITY>
+void *TemplateAllocator<T, POOL_CAPACITY>::s_pool = NULL;
 
 template<typename T, unsigned int POOL_CAPACITY>
 void *TemplateAllocator<T, POOL_CAPACITY>::s_firstFree = TemplateAllocator::init_memory_pool(POOL_CAPACITY);

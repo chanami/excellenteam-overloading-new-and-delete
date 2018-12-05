@@ -9,6 +9,11 @@
 
 static const size_t BLOCK_SIZE = sizeof(Person);
 
+Person::Person()
+{
+    std::cout << "Person::Person()---\n";
+}
+
 Person::Person(const char * full_name, unsigned int id, unsigned char age)
 :id(id),age(age)
 {
